@@ -1,19 +1,21 @@
+const int analogOutPin = 13;
+const int analogInPin = A0;  
+int sensorValue = 0;       
+int outputValue = 0;        
+
 void setup() {
-Serial.begin(115200); // open serial connection to USB Serial port (connected to your computer)
-Serial1.begin(57600); // open internal serial connection to MT7688
-// in MT7688, this maps to device
-pinMode(13, OUTPUT);
+  Serial.begin(9600);
+  Serial1.begin(57600);
 }
+
 void loop() {
-int c = Serial1.read(); // read from MT7688
-if (c != -1) {
-switch(c) {
-case '0': // turn off D13 when receiving "0"
-digitalWrite(13, 0);
-break;
-case '1': // turn on D13 when receiving "1"
-digitalWrite(13, 1);
-break;
-}
-}
+  sensorValue = analogRead(analogInPin);
+  outputValue = map(sensorValue, 0, 1023, 0, 255);
+  analogWrite(analogOutPin, outputValue);
+  Serial.print("sensor = ");
+  Serial.print(sensorValue);
+  Serial.print("\t output = ");
+  Serial.println(outputValue);
+  Serial1.write(outputValue);
+  delay(2);
 }
