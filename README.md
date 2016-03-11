@@ -1,6 +1,5 @@
-## Smart City Hackathon WorkShop
-## 智慧城市黑客松 工作坊
-###物聯網工作坊 MediaTek LinkIt™ Smart 7688 GPIO 應用
+# Smart City Hackathon WorkShop
+####物聯網工作坊 MediaTek LinkIt™ Smart 7688 GPIO 應用
 
 範例一:
 ```
