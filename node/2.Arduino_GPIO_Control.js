@@ -8,10 +8,10 @@ var port = new SerialPort('/dev/ttyS0',{
 port.on('open',function(){
   while(true){
     setTimeout(function(){
-        Serial.write("1");
+        port.write("1");
     },200);
     setTimeout(function(){
-        Serial.write("0");
+        port.write("0");
     },200);
   }
 });
